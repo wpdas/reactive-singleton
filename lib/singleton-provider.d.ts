@@ -1,7 +1,8 @@
 import React from 'react';
 import { Status } from './types';
+declare type ProviderStatus = Status | 'next_status';
 interface SingletonContextProps {
-    status: Status;
+    status: ProviderStatus;
 }
 export declare const SingletonContext: React.Context<SingletonContextProps>;
 interface SingletonProviderProps {
