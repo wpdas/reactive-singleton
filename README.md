@@ -143,7 +143,7 @@ const App = () => {
 
 That's basically this. Feel free to check out the live examples for a better understanding.
 
-### :eyes: Live Examples
+## :eyes: Live Examples
 
 - Using Typescript: [TypeScript Example - CodeSandBox](https://codesandbox.io/s/reactive-singleton-typescript-ibfu3)
 
