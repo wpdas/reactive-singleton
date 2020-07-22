@@ -17,7 +17,7 @@ npm i reactive-singleton
 Yarn:
 
 ```sh
-npm add reactive-singleton
+yarn add reactive-singleton
 ```
 
 ## :gear: How to use

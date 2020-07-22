@@ -17,5 +17,14 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "repository": "git://github.com/wpdas/reactive-singleton.git"
+  "repository": "git://github.com/wpdas/reactive-singleton.git",
+  "keywords": [
+    "react",
+    "singleton",
+    "singleton-pattern",
+    "hooks",
+    "typescript",
+    "javascript",
+    "reactive"
+  ]
 }
