@@ -11,10 +11,14 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom"
   },
-  "author": "Wenderson Pires",
+  "author": "Wenderson Pires <wendersonpdas@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": "git://github.com/wpdas/reactive-singleton.git"
 }
