@@ -26,7 +26,7 @@ npm add reactive-singleton
 
 You can implement the Singleton class as usual. After implementing the class, you have to use the first important hook here, it is 'createSingleton()'. createSingleton hook returns the necessary methods to make your service (singleton) works within React, they are:
 
-- `useWatcher`: Watch the changes that are being made inside the singleton. A "done" method is provided, you must call it when the necessary data is updated so that, React will be notified. This function supports sync and async calls.
+- `useWatcher`: Watches the changes that are being made inside the singleton. A "done" method is provided, you must call it when the necessary data is updated so that, React will be notified. This function supports sync and async calls.
 
 - `setValue`: You must pass your singleton as parameter to this function.
 
@@ -96,7 +96,7 @@ return (
 //...
 ```
 
-Now inside the children components, you can use your singleton service (implemented previously) as usual. The only rule here is, SINGLETON`S METHODS CAN NOT BE DESTRUCTURED. So, use this like:
+Now inside the children components, you can use your singleton service (implemented previously) as usual. The only rule here is, SINGLETON`S METHODS CAN NOT BE DESTRUCTURED. So, use them like:
 
 ```ts
 import UserService from '...'
@@ -111,9 +111,9 @@ const App = () => {
 
 Reactive Singleton provides 2 more hooks to help you:
 
-- `useSingletonStatus` This hook will let the app know the current status of a specific Singleton's process. Returns "in_progress" when Singleton's values are being changed and "ready" when it has updated data.
+- `useSingletonStatus` This hook will let the app know the current status of a specific Singleton's process. Returns "in_progress" when Singleton's values are being changed and "ready" when it has been updated.
 
-- `useWasDataUpdated` Lets the app know when the Singleton is not using default (data stored at the moment this hook was used) props anymore. Returns `true` or `false`.
+- `useWasDataUpdated` Lets the app know when the Singleton is not using default (data stored at the moment this hook was used) props any more. Returns `true` or `false`.
 
 Basic usage example:
 
