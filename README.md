@@ -20,9 +20,9 @@ Yarn:
 npm add reactive-singleton
 ```
 
-### :gear: How to use
+## :gear: How to use
 
-#### 1 - Singleton implementation:
+### 1 - Singleton implementation:
 
 You can implement the Singleton class as usual. After implementing the class, you have to use the first important hook here, it is 'createSingleton()'. createSingleton hook returns the necessary methods to make your service (singleton) works within React, they are:
 
@@ -80,7 +80,7 @@ class MyService {
 }
 ```
 
-#### 2 - React setup:
+### 2 - React setup:
 
 Use the 'SingletonProvider' at the top level component of your application, so that, its children will be affected.
 
