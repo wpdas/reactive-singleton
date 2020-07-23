@@ -2,6 +2,13 @@
 
 # Reactive Singleton
 
+[![npm version](https://badge.fury.io/js/reactive-singleton.svg)](https://www.npmjs.com/package/reactive-singleton)
+[![downloads](https://badgen.net/npm/dt/reactive-singleton)](https://www.npmjs.com/package/reactive-singleton)
+![Minified size](https://badgen.net/bundlephobia/min/reactive-singleton)
+![ES6 Javascript support](https://badgen.net/badge/icon/javascript?icon=kofi&label)
+![Typescript support](https://badgen.net/badge/icon/typescript?icon=typescript&label)
+![Types included](https://badgen.net/npm/types/tslib)
+
 This is a tool to help you use the Singleton pattern within the React environment. Singleton classes can be used but will not be reactive when any instance attribute is changed. Reactive Singleton comes to solve this problem.
 
 ## :green_book: Installation
