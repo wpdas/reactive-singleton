@@ -160,6 +160,13 @@ That's basically this. Feel free to check out the live examples for a better und
 
 ## :notebook: Changelogs
 
+### v1.0.3
+
+- Final bundle size was reduced
+- Added JSDoc annotations
+- Minified bundle
+- Merged declarations
+
 ### v1.0.0
 
 - First release;
