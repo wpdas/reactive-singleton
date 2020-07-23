@@ -1,6 +1,6 @@
 {
   "name": "reactive-singleton",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "A fancy way to use Singleton pattern within the React environment.",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
