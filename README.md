@@ -78,6 +78,8 @@ class MyService {
     })
   }
 }
+
+setValue(MyService)
 ```
 
 ### 2 - React setup:
