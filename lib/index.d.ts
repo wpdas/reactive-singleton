@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import React from 'react'
+
 type Status = 'in_progress' | 'ready'
 interface SingletonProviderProps {
   readonly children: React.ReactNode
