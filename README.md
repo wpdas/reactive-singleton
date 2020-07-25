@@ -160,6 +160,10 @@ That's basically this. Feel free to check out the live examples for a better und
 
 ## :notebook: Changelogs
 
+### v1.0.4
+
+- Order of rendering fixed
+
 ### v1.0.3
 
 - Final bundle size was reduced
