@@ -9,7 +9,7 @@
 ![ES6 Javascript support](https://badgen.net/badge/icon/javascript?icon=kofi&label)
 ![Typescript support](https://badgen.net/badge/icon/typescript?icon=typescript&label)
 
-This is a tool to help you use the Singleton pattern within the React environment. Singleton classes can be used but will not be reactive when any instance attribute is changed. Reactive Singleton comes to solve this problem.
+This is a tool to help you use the Singleton pattern within the React environment. Singleton classes can be used but will not be reactive when any instance attribute is changed. Reactive Singleton comes to solve this problem providing support to Typescript and Javascript projects.
 
 ## :green_book: Installation
 
@@ -53,10 +53,10 @@ const { useWatcher, setValue } = createSingleton()
 class MySingleton {
   private static instance: MySingleton
   public static getInstance(): MySingleton {
-    if (!MyService.instance) {
-      MyService.instance = new MySingleton()
+    if (!MySingleton.instance) {
+      MySingleton.instance = new MySingleton()
     }
-    return MyService.instance
+    return MySingleton.instance
   }
   public name = 'old name'
   public updateData() {
@@ -142,10 +142,10 @@ const { useWatcher, setValue } = createSingleton()
 class MySingleton {
   private static instance: MySingleton
   public static getInstance(): MySingleton {
-    if (!MyService.instance) {
-      MyService.instance = new MySingleton()
+    if (!MySingleton.instance) {
+      MySingleton.instance = new MySingleton()
     }
-    return MyService.instance
+    return MySingleton.instance
   }
   public name = null
 
