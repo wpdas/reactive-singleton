@@ -11,6 +11,19 @@
 
 This is a tool to help you use the Singleton pattern within the React environment. Singleton classes can be used but will not be reactive when any instance attribute is changed. Reactive Singleton comes to solve this problem providing support to Typescript and Javascript projects.
 
+## Table of contents
+
+- [Installation](#green_book-installation)
+- [Main Resources](#gear-main-resources)
+  - [Provider](#provider)
+  - [API](#api)
+  - [Hooks](#hooks)
+- [Example](#writing_hand-example)
+- [Live Demos](#eyes-live-demos)
+- [Limitations](#stop_sign-limitations)
+- [Changelogs](#notebook-changelogs)
+- [License](#scroll-license)
+
 ## :green_book: Installation
 
 To install the stable version:
@@ -27,7 +40,7 @@ Yarn:
 yarn add reactive-singleton
 ```
 
-## :gear: Main resources
+## :gear: Main Resources
 
 ### Provider
 
