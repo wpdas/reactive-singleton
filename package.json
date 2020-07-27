@@ -9,7 +9,8 @@
     "lib"
   ],
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom"
+    "test": "jest --env=jsdom --coverage",
+    "test:ci": "CI=true jest --env=jsdom"
   },
   "author": "Wenderson Pires <wendersonpdas@gmail.com>",
   "license": "MIT",
@@ -26,5 +27,26 @@
     "typescript",
     "javascript",
     "reactive"
-  ]
+  ],
+  "devDependencies": {
+    "@kevinwolf/eslint-config": "^0.2.4",
+    "@testing-library/jest-dom": "^5.11.1",
+    "@testing-library/react": "^10.4.7",
+    "@types/jest": "^26.0.7",
+    "@types/react": "^16.9.43",
+    "@types/testing-library__jest-dom": "^5.9.1",
+    "@types/testing-library__react": "^10.2.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "ts-jest": "^26.1.3",
+    "typescript": "^3.9.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test"
+    }
+  }
 }
