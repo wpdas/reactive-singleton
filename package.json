@@ -15,8 +15,8 @@
   "author": "Wenderson Pires <wendersonpdas@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "repository": "git://github.com/wpdas/reactive-singleton.git",
   "keywords": [
