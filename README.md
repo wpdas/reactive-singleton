@@ -122,7 +122,7 @@ const MyApp = () => {
 ```ts
 const wasDataUpdated = useWasDataUpdated(MySingleton) // true or false
 
-// You can optionally define the verification interval (debounce). Default is
+// You can optionally define the verification interval (debounce). Default is 500ms
 const wasDataUpdated = useWasDataUpdated(MySingleton, 1000) // true or false
 ```
 
