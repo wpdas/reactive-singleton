@@ -261,6 +261,11 @@ The only limitation here is, **SINGLETON`S METHODS CAN NOT BE DESTRUCTURED**. So
 
 ## :notebook: Changelogs
 
+### v1.1.6
+
+- Peer dependencies changed
+- Debounce added to useWasDataUpdated hook
+
 ### v1.0.5
 
 - Tests
