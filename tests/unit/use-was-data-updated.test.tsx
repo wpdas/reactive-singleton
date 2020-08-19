@@ -12,7 +12,7 @@ test('useWasDataUpdated hook', (done) => {
   const useWasDataUpdatedSpy = jest.spyOn(module, 'useWasDataUpdated')
 
   const TestAppState = () => {
-    const wasUpdated = module.useWasDataUpdated(TestSingleton)
+    const wasUpdated = module.useWasDataUpdated(TestSingleton, 0)
     const testSingleton = TestSingleton.getInstance()
     testSingleton.updateTestData('User', 34)
 
