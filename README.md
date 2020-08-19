@@ -121,6 +121,9 @@ const MyApp = () => {
 
 ```ts
 const wasDataUpdated = useWasDataUpdated(MySingleton) // true or false
+
+// You can optionally define the verification interval (debounce). Default is
+const wasDataUpdated = useWasDataUpdated(MySingleton, 1000) // true or false
 ```
 
 Lets the app know if the singleton data was updated after this hook has been used. Returns `true` or `false` (boolean).
