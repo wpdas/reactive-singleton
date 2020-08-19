@@ -41,8 +41,12 @@ declare function useSingletonStatus<C>(singletonClass: C): Status
  * Returns true or false.
  *
  * @param singletonClass Singleton class
+ * @param debounceDelay The debounce delay used to define if data was updated (default: 500)
  */
-declare function useWasDataUpdated<C>(singletonClass: C): boolean
+declare function useWasDataUpdated<C>(
+  singletonClass: C,
+  debounceDelay?: number
+): boolean
 export {
   Status,
   SingletonProvider,
