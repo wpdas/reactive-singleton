@@ -20,9 +20,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.16.0
-
-      - name: Install Client Dependencies
-        run: yarn
-
-      - name: Tests
-        run: yarn test:ci
+      # Need to find a way for local tests
+      # - name: Install Client Dependencies
+      #   run: yarn
+      # - name: Tests
+      #   run: yarn test:ci
