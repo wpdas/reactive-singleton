@@ -264,6 +264,10 @@ The only limitation here is, **SINGLETON`S METHODS CAN NOT BE DESTRUCTURED**. So
 
 ## :notebook: Changelogs
 
+### v1.1.7
+
+- Fixed issue caused by multiple react-dom for ES6
+
 ### v1.1.6
 
 - Peer dependencies changed

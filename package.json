@@ -1,6 +1,6 @@
 {
   "name": "reactive-singleton",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A fancy way to use Singleton pattern within the React environment.",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -44,11 +44,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test"
+      "pre-commit": ""
     }
-  },
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
   }
 }
