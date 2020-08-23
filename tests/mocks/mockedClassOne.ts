@@ -1,8 +1,5 @@
 // Singleton Class - Mock
-export const initTestSingletonClass = (
-  setValue: Function,
-  useWatcher: Function
-) => {
+export const initTestSingletonClass = (setClass: Function, watch: Function) => {
   type TestData = {
     name: string
     age: number
@@ -24,7 +21,7 @@ export const initTestSingletonClass = (
     }
 
     public updateTestData(name: string, age: number) {
-      useWatcher((done) => {
+      watch((done) => {
         this.testData = {
           name,
           age,
@@ -33,7 +30,7 @@ export const initTestSingletonClass = (
       })
     }
   }
-  setValue(TestSingleton)
+  setClass(TestSingleton)
 
   return TestSingleton
 }

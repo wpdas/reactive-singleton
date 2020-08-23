@@ -3,13 +3,13 @@ import { initTestSingletonClass } from '../mocks/mockedClassOne'
 
 const singleton = createSingleton()
 
-test('createSingleton factory: useWatcher hook and setValue method', () => {
-  const setValueSpy = jest.spyOn(singleton, 'setValue')
-  const useWatcherSpy = jest.spyOn(singleton, 'useWatcher')
+test('createSingleton factory: watch hook and setClass method', () => {
+  const setClassSpy = jest.spyOn(singleton, 'setClass')
+  const watchSpy = jest.spyOn(singleton, 'watch')
 
   const TestSingleton = initTestSingletonClass(
-    singleton.setValue,
-    singleton.useWatcher
+    singleton.setClass,
+    singleton.watch
   )
 
   // Testing
@@ -21,8 +21,8 @@ test('createSingleton factory: useWatcher hook and setValue method', () => {
   const testSingletonB = TestSingleton.getInstance()
   expect(testSingletonB.testData.name).toStrictEqual('Wenderson')
   expect(testSingletonB.testData.age).toStrictEqual(30)
-  expect(useWatcherSpy).toHaveBeenCalledTimes(1)
-  expect(setValueSpy).toHaveBeenCalledWith(TestSingleton)
+  expect(watchSpy).toHaveBeenCalledTimes(1)
+  expect(setClassSpy).toHaveBeenCalledWith(TestSingleton)
   testSingletonA.updateTestData('Pires', 29)
-  expect(useWatcherSpy).toHaveBeenCalledTimes(2)
+  expect(watchSpy).toHaveBeenCalledTimes(2)
 })
