@@ -221,6 +221,7 @@ const { watch, setClass } = createSingleton()
 - Fixed the issue that caused components to re-render more than necessary when using hooks
 - Added new hook: `useReRenderOnUpdate`
 - Added new HOC: `withSingleton`
+- New tests
 
 ### v1.1.7
 
