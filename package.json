@@ -1,6 +1,6 @@
 {
   "name": "reactive-singleton",
-  "version": "2.0.0",
+  "version": "2.0.0-rc1",
   "description": "A fancy way to use Singleton pattern within the React environment.",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -13,7 +13,7 @@
     "delete:temp:react": "chmod +x ./delete-temp-react.sh && ./delete-temp-react.sh",
     "test:jest": "jest --env=jsdom",
     "test": "chmod +x ./test-script.sh && ./test-script.sh",
-    "test:ci": "CI=true && test:jest"
+    "test:ci": "CI=true && yarn test"
   },
   "author": "Wenderson Pires <wendersonpdas@gmail.com>",
   "license": "MIT",
