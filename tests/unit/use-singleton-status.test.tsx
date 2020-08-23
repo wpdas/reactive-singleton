@@ -7,8 +7,8 @@ import { initTestSingletonClass as initTestSingletonClassWithDelay } from '../mo
 test('useSingletonStatus hook - in_progress', (done) => {
   const singleton = module.createSingleton()
   const TestSingletonOne = initTestSingletonClassWithDelay(
-    singleton.setValue,
-    singleton.useWatcher
+    singleton.setClass,
+    singleton.watch
   )
   const useSingletonStatusSpy = jest.spyOn(module, 'useSingletonStatus')
 
@@ -34,8 +34,8 @@ test('useSingletonStatus hook - in_progress', (done) => {
 test('useSingletonStatus hook - ready', () => {
   const singleton = module.createSingleton()
   const TestSingletonTwo = initTestSingletonClass(
-    singleton.setValue,
-    singleton.useWatcher
+    singleton.setClass,
+    singleton.watch
   )
   const useSingletonStatusSpy = jest.spyOn(module, 'useSingletonStatus')
 

@@ -18,7 +18,7 @@ This is a tool to help you use the Singleton pattern within the React environmen
   - [Provider](#provider)
   - [API](#api)
   - [Hooks](#hooks)
-- [Example](#writing_hand-example)
+  - [Higher-Order Component (HOC)](#HOC)
 - [Live Demos](#eyes-live-demos)
 - [Limitations](#stop_sign-limitations)
 - [Changelogs](#notebook-changelogs)
@@ -61,7 +61,7 @@ The main provider that makes all the magic happen. Use it in the top level compo
 **createSingleton**
 
 ```ts
-const { useWatcher, setValue } = createSingleton()
+const { watch, setClass } = createSingleton()
 
 class MySingleton {
   private static instance: MySingleton
@@ -74,20 +74,20 @@ class MySingleton {
   public name = 'old name'
   public updateData() {
     /* when data needs to be changed */
-    useWatcher((done) => {
+    watch((done) => {
       this.name = 'new name'
       done() // Notifies the Singleton Provider
     })
   }
 }
 /* some singleton class */
-setValue(MySingleton)
+setClass(MySingleton)
 ```
 
-Used to make the Singleton Pattern be listened to by React. You can implement the Singleton class as usual. After implementing the class, you have to use the first important API resource, it is `createSingleton`. `createSingleton` returns the necessary methods to make your service (singleton) works within React:
+Used to make the Singleton Pattern be listened to by React. You can implement the Singleton class as usual. After implementing the class, you have to use the first important API resource, it is `createSingleton`. After calling the `createSingleton()` method, it'll return the necessary methods to make your service (singleton) works within React:
 
-- `useWatcher`: Must be used when data needs to be updated inside the singleton class;
-- `setValue`: Receives the singleton class as parameter. E.g: `setValue(MySingletonClass)`.
+- `watch`: Must be used when data needs to be updated inside the singleton class and watched by React;
+- `setClass`: Receives the singleton class as parameter. E.g: `setClass(MySingletonClass)`.
 
 ### Hooks
 
@@ -126,14 +126,14 @@ const wasDataUpdated = useWasDataUpdated(MySingleton) // true or false
 const wasDataUpdated = useWasDataUpdated(MySingleton, 1000) // true or false
 ```
 
-Lets the app know if the singleton data was updated after this hook has been used. Returns `true` or `false` (boolean).
+Lets the app know if the singleton data was updated. Returns `true` or `false` (boolean).
 
 E.g:
 
 ```tsx
 const MyApp = () => {
-  // Will return 'false' before useEffect block
-  // Will return 'true' after useEffect block
+  // Returns 'false' before useEffect block
+  // Returns 'true' after useEffect block
   const wasDataUpdated = useWasDataUpdated(MySingleton)
 
   const singletonData = MySingleton.getInstance()
@@ -145,102 +145,45 @@ const MyApp = () => {
 }
 ```
 
-## :writing_hand: Example
-
-Here is a simple example of how you can use all the presented resources, including a simple singleton class.
-
-**MySingleton.ts**
+**useReRenderOnUpdate**
 
 ```ts
-import { createSingleton } from 'reactive-singleton'
-const { useWatcher, setValue } = createSingleton()
-
-class MySingleton {
-  private static instance: MySingleton
-  public static getInstance(): MySingleton {
-    if (!MySingleton.instance) {
-      MySingleton.instance = new MySingleton()
-    }
-    return MySingleton.instance
-  }
-  public name = null
-
-  constructor() {
-    this.setInitialName()
-  }
-
-  // It´s still possible to do no reactive changes
-  private setInitialName() {
-    this.name = 'old name'
-  }
-
-  public updateData() {
-    useWatcher((done) => {
-      this.name = 'new name'
-      done()
-    })
-  }
-}
-/* some singleton class */
-setValue(MySingleton)
+const status = useReRenderOnUpdate(MySingleton) // Makes the component re-render every time the Singleton props are updated
 ```
 
-Using the `SingletonProvider` in the index file.
+The Singleton props can be modified in any level of the app and this hook makes the component re-render every time the props of the Singleton Class are updated. Useful for cases where a component is only reading the Singleton props.
+The props read by the component will always have the most updated data provided by the Singleton.
 
-**index.tsx**
-
-```tsx
-import * as React from 'react'
-import { render } from 'react-dom'
-import { SingletonProvider } from 'reactive-singleton'
-import MyApp from './MyApp'
-
-const rootElement = document.getElementById('root')
-render(
-  <SingletonProvider>
-    <MyApp />
-  </SingletonProvider>,
-  rootElement
-)
-```
-
-Inside the MyApp component, you can use your singleton service (implemented previously) as usual.
-
-**MyApp.tsx**
+E.g:
 
 ```tsx
-import React, { useEffect } from 'react'
-import { useSingletonStatus, useWasDataUpdated } from 'reactive-singleton'
-import MySingleton from '...'
-
 const MyApp = () => {
-  // Will return "ready" before useEffect block
-  // Will return "in_progress" after useEffect block
-  // Will return "ready" after the data be updated inside the singleton instance
-  const status = useSingletonStatus(MySingleton) === 'ready'
-  // Will return 'false' before useEffect block
-  // Will return 'true' after useEffect block
-  const wasDataUpdated = useWasDataUpdated(MySingleton)
+  useReRenderOnUpdate(MySingleton)
+  const { a, b } = MySingleton.getInstance()
 
-  const singletonData = MySingleton.getInstance()
+  console.log(a, b) // Will always have the most updated data
 
-  // Will be 'old name' before useEffect block
-  // Will be 'new name' after useEffect block and data be updated inside the singleton instance
-  const { name } = singletonData
+  return (/* component elements */)
+}
+```
 
-  useEffect(() => {
-    singletonData.updateData()
-  }, [])
+### HOC
 
-  return (
-    <>
-      <span>Data updated? {wasDataUpdated ? 'Yes' : 'No'}</span>
-      {status ? <p> Username: {name} </p> : <p>Loading...</p>}
-    </>
-  )
+**withSingleton**
+
+The `withSingleton` HOC works the same way as `useReRenderOnUpdate` Hook. Every time that the Singleton props are changed, the component will re-render using the most updated data provided by the Singleton.
+
+E.g:
+
+```tsx
+const MyComponent = () => {
+  const { a, b } = MySingleton.getInstance()
+  console.log(a, b) // Will always have the most updated data
+
+  return (/* component elements */)
 }
 
-export default MyApp
+export default withSingleton(MyComponent, MySingleton)
 ```
 
 That's basically this. Feel free to check out the live demos for a better understanding.
@@ -250,6 +193,8 @@ That's basically this. Feel free to check out the live demos for a better unders
 - Using Typescript: [TypeScript Example - CodeSandBox](https://codesandbox.io/s/reactive-singleton-typescript-ibfu3)
 
 - Using Javascript (ES6): [JavaScript Example - CodeSandBox](https://codesandbox.io/s/reactive-singleton-javascript-39mmq)
+
+- [See more examples here](https://github.com/Wpdas/reactive-singleton/blob/master/EXAMPLES.md)
 
 ## :stop_sign: Limitations
 
@@ -263,6 +208,20 @@ The only limitation here is, **SINGLETON`S METHODS CAN NOT BE DESTRUCTURED**. So
 ```
 
 ## :notebook: Changelogs
+
+### v2.0.0-rc1
+
+- Fixed the issue that was causing this error: React Error message before the version 2.0.0: React Hook "useWatcher" cannot be called in a class component. React Hooks must be called in a React function component or a custom React Hook function.
+- The main API resources provided by `createSingleton()` was using a resouce called `useWatcher` to be used inside the Singleton Classes, however this went against React Hooks rules. `useWatcher` was renamed to `watch` and the `setValue` was renamed to `setClass`. So that, the usage of `createSingleton()` should be used like:
+
+```ts
+const { watch, setClass } = createSingleton()
+```
+
+- Fixed the issue that caused components to re-render more than necessary when using hooks
+- Added new hook: `useReRenderOnUpdate`
+- Added new HOC: `withSingleton`
+- New tests
 
 ### v1.1.7
 

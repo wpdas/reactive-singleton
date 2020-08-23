@@ -6,8 +6,8 @@ import { initTestSingletonClass } from '../mocks/mockedClassOne'
 test('useWasDataUpdated hook', (done) => {
   const singleton = module.createSingleton()
   const TestSingleton = initTestSingletonClass(
-    singleton.setValue,
-    singleton.useWatcher
+    singleton.setClass,
+    singleton.watch
   )
   const useWasDataUpdatedSpy = jest.spyOn(module, 'useWasDataUpdated')
 
