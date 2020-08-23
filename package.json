@@ -9,9 +9,11 @@
     "lib"
   ],
   "scripts": {
-    "test": "jest --env=jsdom --coverage",
-    "test_": "chmod +x ./test-script.sh && ./test-script.sh",
-    "test:ci": "CI=true jest --env=jsdom"
+    "create:temp:react": "chmod +x ./create-temp-react.sh && ./create-temp-react.sh",
+    "delete:temp:react": "chmod +x ./delete-temp-react.sh && ./delete-temp-react.sh",
+    "test:jest": "jest --env=jsdom",
+    "test": "chmod +x ./test-script.sh && ./test-script.sh",
+    "test:ci": "CI=true && test:jest"
   },
   "author": "Wenderson Pires <wendersonpdas@gmail.com>",
   "license": "MIT",
@@ -45,7 +47,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": ""
+      "pre-commit": "yarn test"
     }
   }
 }
