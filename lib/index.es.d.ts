@@ -40,7 +40,7 @@ declare function createSingleton(): {
 declare function useSingletonStatus<C>(singletonClass: C): Status
 
 /**
- * Re-render with new props when singleton props are updated
+ * Re-render with new singleton props when the singleton props are updated
  * @param singletonClass Singleton class
  */
 declare function useReRenderOnUpdate<C>(singletonClass: C): void
@@ -59,7 +59,7 @@ declare function useWasDataUpdated<C>(
 ): boolean
 
 /**
- * Re-render with new props when singleton props are updated
+ * Re-render with new singleton props when the singleton props are updated
  * @param Component React component
  * @param singletonClass  Singleton class
  */
