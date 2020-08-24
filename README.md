@@ -209,9 +209,13 @@ The only limitation here is, **SINGLETON`S METHODS CAN NOT BE DESTRUCTURED**. So
 
 ## :notebook: Changelogs
 
+### v2.0.0-rc2
+
+- Fixed the error message that was using an old resource reference
+
 ### v2.0.0-rc1
 
-- Fixed the issue that was causing this error: React Error message before the version 2.0.0: React Hook "useWatcher" cannot be called in a class component. React Hooks must be called in a React function component or a custom React Hook function.
+- Fixed the issue that was causing this error: React Hook "useWatcher" cannot be called in a class component. React Hooks must be called in a React function component or a custom React Hook function.
 - The main API resources provided by `createSingleton()` was using a resouce called `useWatcher` to be used inside the Singleton Classes, however this went against React Hooks rules. `useWatcher` was renamed to `watch` and the `setValue` was renamed to `setClass`. So that, the usage of `createSingleton()` should be used like:
 
 ```ts
