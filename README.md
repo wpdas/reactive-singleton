@@ -15,7 +15,6 @@ This is a tool to help you use the Singleton pattern within the React environmen
 
 - [Installation](#green_book-installation)
 - [Main Resources](#gear-main-resources)
-  - [Provider](#provider)
   - [API](#api)
   - [Hooks](#hooks)
   - [Higher-Order Component (HOC)](#HOC)
