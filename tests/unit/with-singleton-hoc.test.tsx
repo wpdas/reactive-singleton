@@ -36,9 +36,5 @@ test('withSingleton HOC', (done) => {
     TestSingleton
   )
 
-  render(
-    <module.SingletonProvider>
-      <TestAppStateWithSingleton />
-    </module.SingletonProvider>
-  )
+  render(<TestAppStateWithSingleton />)
 })

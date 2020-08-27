@@ -2,16 +2,6 @@
 import React from 'react'
 
 type Status = 'in_progress' | 'ready'
-interface SingletonProviderProps {
-  readonly children: React.ReactNode
-}
-
-/**
- * The main service provider
- */
-declare const SingletonProvider: ({
-  children,
-}: SingletonProviderProps) => JSX.Element
 type UseWatcher = (done: () => void) => void
 
 /**
@@ -70,7 +60,6 @@ declare function withSingleton<T, C>(
 
 export {
   Status,
-  SingletonProvider,
   createSingleton,
   useSingletonStatus,
   useReRenderOnUpdate,

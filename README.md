@@ -15,7 +15,6 @@ This is a tool to help you use the Singleton pattern within the React environmen
 
 - [Installation](#green_book-installation)
 - [Main Resources](#gear-main-resources)
-  - [Provider](#provider)
   - [API](#api)
   - [Hooks](#hooks)
   - [Higher-Order Component (HOC)](#HOC)
@@ -41,20 +40,6 @@ yarn add reactive-singleton
 ```
 
 ## :gear: Main Resources
-
-### Provider
-
-**SingletonProvider**
-
-```tsx
-<>
-  <SingletonProvider>
-    <MyApp />
-  </SingletonProvider>
-</>
-```
-
-The main provider that makes all the magic happen. Use it in the top level component of your application, so that all child components are fed with the singleton instance data;
 
 ### API
 
@@ -148,7 +133,7 @@ const MyApp = () => {
 **useReRenderOnUpdate**
 
 ```ts
-const status = useReRenderOnUpdate(MySingleton) // Makes the component re-render every time the Singleton props are updated
+useReRenderOnUpdate(MySingleton) // Makes the component re-render every time the Singleton props are updated
 ```
 
 The Singleton props can be modified in any level of the app and this hook makes the component re-render every time the props of the Singleton Class are updated. Useful for cases where a component is only reading the Singleton props.
@@ -166,6 +151,8 @@ const MyApp = () => {
   return (/* component elements */)
 }
 ```
+
+_Note_: You don't need to use this hook if you're using one of the following resources: `withSingleton` or `useSingletonStatus`.
 
 ### HOC
 
@@ -185,6 +172,8 @@ const MyComponent = () => {
 
 export default withSingleton(MyComponent, MySingleton)
 ```
+
+_Note_: You don't need to use this HOC if you're using one of the following resources: `useReRenderOnUpdate` or `useSingletonStatus`.
 
 That's basically this. Feel free to check out the live demos for a better understanding.
 
@@ -208,6 +197,10 @@ The only limitation here is, **SINGLETON`S METHODS CAN NOT BE DESTRUCTURED**. So
 ```
 
 ## :notebook: Changelogs
+
+### v2.0.0
+
+- SingletonProvider removed. This is no longer necessary due to changes in performance.
 
 ### v2.0.0-rc2
 

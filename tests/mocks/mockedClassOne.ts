@@ -1,8 +1,8 @@
 // Singleton Class - Mock
 export const initTestSingletonClass = (setClass: Function, watch: Function) => {
   type TestData = {
-    name: string
-    age: number
+    name: string | null
+    age: number | null
   }
 
   class TestSingleton {

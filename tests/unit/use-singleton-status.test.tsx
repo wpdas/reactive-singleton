@@ -21,13 +21,7 @@ test('useSingletonStatus hook - in_progress', (done) => {
     return null
   }
 
-  const TestAppWithProvider = () => (
-    <module.SingletonProvider>
-      <TestApp />
-    </module.SingletonProvider>
-  )
-
-  render(<TestAppWithProvider />)
+  render(<TestApp />)
   expect(useSingletonStatusSpy).toReturnWith('in_progress')
 })
 
@@ -42,11 +36,7 @@ test('useSingletonStatus hook - ready', () => {
   const TestAppStateOne = () => {
     module.useSingletonStatus(TestSingletonTwo)
 
-    return (
-      <module.SingletonProvider>
-        <div />
-      </module.SingletonProvider>
-    )
+    return <div />
   }
   render(<TestAppStateOne />)
   expect(useSingletonStatusSpy).toReturnWith('ready')

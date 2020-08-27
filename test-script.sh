@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+rm -rf temp &&
 mkdir temp &&
 cd temp &&
 cp ../package_test.json ./package.json &&

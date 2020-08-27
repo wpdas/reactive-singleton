@@ -1,0 +1,9 @@
+/**
+ * Generates a unique ID
+ */
+const uniqueId = () =>
+  `_${Math.random()
+    .toString(36)
+    .substr(2, 9)}`
+
+export default uniqueId

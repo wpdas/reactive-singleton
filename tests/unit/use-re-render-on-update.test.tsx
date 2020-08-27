@@ -31,9 +31,5 @@ test('useReRenderOnUpdate hook', (done) => {
 
     return <div />
   }
-  render(
-    <module.SingletonProvider>
-      <TestAppState />
-    </module.SingletonProvider>
-  )
+  render(<TestAppState />)
 })
