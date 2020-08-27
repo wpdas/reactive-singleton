@@ -26,11 +26,7 @@ test('useWasDataUpdated hook', (done) => {
       }
     }, [wasUpdated, testSingleton])
 
-    return (
-      <module.SingletonProvider>
-        <div />
-      </module.SingletonProvider>
-    )
+    return <div />
   }
   render(<TestAppState />)
 })
