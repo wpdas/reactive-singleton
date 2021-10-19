@@ -198,6 +198,10 @@ The only limitation here is, **SINGLETON`S METHODS CAN NOT BE DESTRUCTURED**. So
 
 ## :notebook: Changelogs
 
+### v2.0.2
+
+- Updated important dependencies modules to improve security.
+
 ### v2.0.0
 
 - SingletonProvider removed. This is no longer necessary due to changes in performance.
