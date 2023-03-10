@@ -198,7 +198,7 @@ The only limitation here is, **SINGLETON`S METHODS CAN NOT BE DESTRUCTURED**. So
 
 ## :notebook: Changelogs
 
-### v2.0.3
+### v2.0.4
 
 - A few modules were updated.
 
